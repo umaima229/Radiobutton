@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Buttons Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #9a9acc;
+        }
+
+        .container {
+            text-align: center;
+            background: #0a1c3d;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #d83232;
+        }
+
+        .radio-group {
+            margin-bottom: 20px;
+        }
+
+        .radio-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #dd2525;
+            cursor: pointer;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: #007bff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Favorite Fruit</h1>
+        <div class="radio-group">
+            <label><input type="radio" name="fruit" value="Apple"> Apple</label>
+            <label><input type="radio" name="fruit" value="Banana"> Banana</label>
+            <label><input type="radio" name="fruit" value="Cherry"> Cherry</label>
+            <label><input type="radio" name="fruit" value="Mango"> Mango</label>
+        </div>
+        <button id="submit-btn">Submit</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            const selectedFruit = document.querySelector('input[name="fruit"]:checked');
+            const resultDiv = document.getElementById('result');
+
+            if (selectedFruit) {
+                resultDiv.textContent = `You selected: ${selectedFruit.value}`;
+            } else {
+                resultDiv.textContent = 'Please select a fruit.';
+            }
+        });
+    </script>
+</body>
+</html>
